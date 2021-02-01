@@ -82,6 +82,7 @@ video {
 #overlay__logo {
   width: 80%;
   max-width: 400px;
+  transform: translateY(-5vh);
   fill: var(--primary-color);
   mix-blend-mode: multiply;
 }
