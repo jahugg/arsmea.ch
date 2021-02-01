@@ -1,0 +1,32 @@
+// ================
+// Prefered Default styles
+
+html {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  img,
+  video {
+    display: block;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  ::selection {
+    background: white;
+    color: black;
+  }
+
+
+// ================
+// Prefered Default styles
+#app {
+}

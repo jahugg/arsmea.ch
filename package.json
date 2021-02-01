@@ -1,0 +1,10 @@
+{
+  "name": "arsmea",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1"
+  }
+}
