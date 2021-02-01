@@ -1,5 +1,5 @@
 {
-  "name": "arsmea",
+  "name": "arsmea.ch",
   "scripts": {
     "start": "parcel serve ./src/index.html",
     "build": "parcel build ./src/index.html"
