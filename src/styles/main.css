@@ -1,32 +1,86 @@
-// ================
-// Prefered Default styles
-
+/* ============ */
+/* default styles */
 html {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-  }
-  
-  img,
-  video {
-    display: block;
-  }
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  
-  ::selection {
-    background: white;
-    color: black;
-  }
+  box-sizing: border-box;
+}
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
-// ================
-// Prefered Default styles
+body {
+  margin: 0;
+}
+
+img,
+video {
+  display: block;
+}
+
+::selection {
+  background: white;
+  color: black;
+}
+
+/* ============ */
+/* properties */
+:root {
+  --primary-color: rgb(173, 24, 43);
+  --secondary-color: rgb(209, 156, 166);
+}
+
+/* ============ */
+/* styles */
 #app {
+  background: var(--secondary-color);
+  min-height: 100vh;
+}
+
+#showcase {
+  padding: 2vw;
+  mix-blend-mode: multiply;
+}
+
+#showcase img {
+  margin: 20px;
+  width: 90vw;
+  max-width: 40vw;
+}
+
+#showcase img:nth-child(1) {
+  transform: translate(0, 0);
+}
+
+#showcase img:nth-child(2) {
+  transform: translate(45vw, 0);
+}
+
+#showcase img:nth-child(3) {
+  transform: translate(15vw, 0);
+}
+
+#showcase img:nth-child(4) {
+  transform: translate(30vw, 0);
+}
+
+#logo {
+  width: 80%;
+  max-width: 350px;
+  fill: var(--primary-color);
+  mix-blend-mode: multiply;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: difference;
+
+  /* place-items: center; */
 }
