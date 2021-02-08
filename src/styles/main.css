@@ -14,6 +14,8 @@ body {
   margin: 0;
 }
 
+$: 
+
 img,
 video {
   display: block;
@@ -27,26 +29,52 @@ video {
 /* ============ */
 /* properties */
 :root {
+  /* olive - rose */
+  /* --primary-color: rgb(237, 170, 178);
+  --secondary-color: rgb(95, 84, 63); */
+
+  /* orange - pink */
+  /* --primary-color: rgb(209, 156, 166);
+  --secondary-color: rgb(174, 83, 12); */
+
+  /* türkies - beige */
+  /* --primary-color: rgb(172, 187, 184);
+  --secondary-color: rgb(181, 147, 76); */
+
+  /* blue - brown */
+  /* --primary-color: rgb(180, 100, 39);
+  --secondary-color: rgb(194, 204, 203); */
+
+  /* rot - ping */
   --primary-color: rgb(173, 24, 43);
   --secondary-color: rgb(209, 156, 166);
+  --test: red;
+
+  /* rot - ping */
+  /* --primary-color: black;
+  --secondary-color: white; */
 }
 
 /* ============ */
 /* styles */
 
 #app {
-  background: var(--secondary-color);
   min-height: 100vh;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Times', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 1.2em;
+  /* use postcss-inline-svg generating an error */
+  /* background: svg-load('../media/arsmea-logo.svg'); */
 }
 
 #overlay {
-  position: fixed;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  /* mix-blend-mode: difference; */
+  background: url('../media/illu-2.webp') var(--secondary-color) no-repeat right bottom -10vh;
+  background-size: contain;
+  background-blend-mode: multiply;
 }
 
 #overlay__main {
@@ -54,29 +82,29 @@ video {
   justify-content: center;
   align-items: center;
   flex: 1 1 auto;
-}
 
-#logo {
-  width: 75%;
-  max-width: 400px;
-  fill: var(--primary-color);
+  & #logo {
+    width: 75%;
+    max-width: 400px;
+    fill: var(--primary-color);
+  }
 }
 
 #overlay__footer {
   display: flex;
   justify-content: space-evenly;
-}
 
-#overlay__footer a {
-  flex: 1 0 auto;
-  text-align: center;
-  padding: 1.2em;
-  color: var(--primary-color);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: background .2s ease-out;
-}
-
-#overlay__footer a:hover {
-  background: rgba(255, 255, 255, 0.08);
+  & a {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: 1.2em;
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s ease-out;
+    background: color-mod(var(--secondary-color) contrast(95%) a(95%));
+  }
+  & a:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
 }
