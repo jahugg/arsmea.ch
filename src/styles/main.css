@@ -14,10 +14,7 @@ body {
   margin: 0;
 }
 
-$: 
-
-img,
-video {
+img, video {
   display: block;
 }
 
@@ -48,7 +45,6 @@ video {
   /* rot - ping */
   --primary-color: rgb(173, 24, 43);
   --secondary-color: rgb(209, 156, 166);
-  --test: red;
 
   /* rot - ping */
   /* --primary-color: black;
@@ -59,25 +55,25 @@ video {
 /* styles */
 
 #app {
-  min-height: 100vh;
-  font-family: 'Helvetica Neue', 'Helvetica', 'Times', sans-serif;
-  letter-spacing: 0.2em;
-  font-size: 1.2em;
-  /* use postcss-inline-svg generating an error */
-  /* background: svg-load('../media/arsmea-logo.svg'); */
-}
-
-#overlay {
   height: 100vh;
   width: 100vw;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 1.2em;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  background: url('../media/illu-2.webp') var(--secondary-color) no-repeat right bottom -10vh;
+  /* background: url('../media/illu.webp') var(--secondary-color) no-repeat right bottom; */
+  background: var(--secondary-color);
   background-size: contain;
   background-blend-mode: multiply;
 }
 
-#overlay__main {
+#content__main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +86,7 @@ video {
   }
 }
 
-#overlay__footer {
+#content__nav {
   display: flex;
   justify-content: space-evenly;
 
@@ -102,9 +98,11 @@ video {
     text-decoration: none;
     text-transform: uppercase;
     transition: background 0.2s ease-out;
-    background: color-mod(var(--secondary-color) contrast(95%) a(95%));
+    /* background: color-mod(var(--secondary-color) contrast(95%) a(60%)); */
+    background: rgba(255, 255, 255, 0.06);
   }
+
   & a:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.17);
   }
 }
