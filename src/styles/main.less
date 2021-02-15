@@ -1,0 +1,108 @@
+/* ============ */
+/* default styles */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+img, video {
+  display: block;
+}
+
+::selection {
+  background: white;
+  color: black;
+}
+
+/* ============ */
+/* properties */
+:root {
+  /* olive - rose */
+  /* --primary-color: rgb(237, 170, 178);
+  --secondary-color: rgb(95, 84, 63); */
+
+  /* orange - pink */
+  /* --primary-color: rgb(209, 156, 166);
+  --secondary-color: rgb(174, 83, 12); */
+
+  /* türkies - beige */
+  /* --primary-color: rgb(172, 187, 184);
+  --secondary-color: rgb(181, 147, 76); */
+
+  /* blue - brown */
+  /* --primary-color: rgb(180, 100, 39);
+  --secondary-color: rgb(194, 204, 203); */
+
+  /* rot - ping */
+  --primary-color: rgb(173, 24, 43);
+  --secondary-color: rgb(209, 156, 166);
+
+  /* rot - ping */
+  /* --primary-color: black;
+  --secondary-color: white; */
+}
+
+/* ============ */
+/* styles */
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 1.2em;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background: url('../media/illu.webp') var(--secondary-color) no-repeat right bottom; */
+  background: var(--secondary-color);
+  background-size: contain;
+  background-blend-mode: multiply;
+}
+
+#content__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+
+  #logo {
+    width: 75%;
+    max-width: 400px;
+    fill: var(--primary-color);
+  }
+}
+
+#content__nav {
+  display: flex;
+  justify-content: space-evenly;
+
+  a {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: 1.2em;
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s ease-out;
+    /* background: color-mod(var(--secondary-color) contrast(95%) a(60%)); */
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  a:hover {
+    background: rgba(255, 255, 255, 0.17);
+  }
+}
