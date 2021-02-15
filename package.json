@@ -1,18 +1,11 @@
 {
   "name": "arsmea.ch",
   "scripts": {
-    "start": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --experimental-scope-hoisting"
   },
   "devDependencies": {
-    "@parcel/transformer-html": "^2.0.0-alpha.3",
-    "@parcel/transformer-posthtml": "^2.0.0-alpha.3",
-    "parcel": "^2.0.0-beta.1",
-    "postcss": "^8.0.0",
-    "postcss-color-mod-function": "^3.0.3",
-    "postcss-import": "^14.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "postcss-url": "^10.1.1"
-  },
-  "dependencies": {}
+    "less": "^4.1.1",
+    "parcel-bundler": "^1.12.4"
+  }
 }
