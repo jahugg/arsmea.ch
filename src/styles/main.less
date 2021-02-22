@@ -2,7 +2,6 @@
 /* default styles */
 html {
   box-sizing: border-box;
-  height: 100%;
 }
 
 *,
@@ -13,10 +12,10 @@ html {
 
 body {
   margin: 0;
-  height: 100%;
 }
 
-img, video {
+img,
+video {
   display: block;
 }
 
@@ -27,43 +26,32 @@ img, video {
 
 @bp-small: ~'screen and (min-width: 540px)';
 
+.colorTransition {
+  transition-property: color, background;
+  transition-duration: 2s;
+  transition-timing-function: ease-out;
+}
+
 /* ============ */
 /* properties */
 :root {
-  /* olive - rose */
-  // --primary-color: rgb(237, 170, 178);
-  // --secondary-color: rgb(95, 84, 63);
-
-  /* orange - pink */
-  // --primary-color: rgb(209, 156, 166);
-  // --secondary-color: rgb(174, 83, 12); 
-
-  /* türkies - beige */
-  // --primary-color: rgb(172, 187, 184);
-  // --secondary-color: rgb(181, 147, 76);
-
-  /* blue - brown */
-  // --primary-color: rgb(180, 100, 39);
-  // --secondary-color: rgb(194, 204, 203);
-
-  /* rot - pink */
-  --primary-color: rgb(173, 24, 43);
-  --secondary-color: rgb(209, 156, 166);
-
-  /* rot - ping */
-  // --primary-color: black;
-  // --secondary-color: white;
+  --primary-color: #ad182b;
+  --secondary-color: #d19ca6;
 }
 
 /* ============ */
 /* styles */
 
 #app {
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  letter-spacing: 0.2em;
-  font-size: 1.2em;
+  letter-spacing: 0.15em;
+  font-size: 1em;
+
+  @media @bp-small {
+    font-size: 1.2em;
+  }
 }
 
 #content {
@@ -75,6 +63,7 @@ img, video {
   background: var(--secondary-color);
   background-size: contain;
   background-blend-mode: multiply;
+  .colorTransition;
 }
 
 #content__main {
@@ -90,6 +79,7 @@ img, video {
     background: var(--primary-color);
     mask: url('../media/arsmea-logo.svg') no-repeat;
     -webkit-mask: url('../media/arsmea-logo.svg') no-repeat;
+    .colorTransition;
 
     @media @bp-small {
       padding: 0;
@@ -109,9 +99,8 @@ img, video {
     color: var(--primary-color);
     text-decoration: none;
     text-transform: uppercase;
-    transition: background 0.2s ease-out;
-    /* background: color-mod(var(--secondary-color) contrast(95%) a(60%)); */
     background: rgba(255, 255, 255, 0.06);
+    .colorTransition;
   }
 
   a:hover {
