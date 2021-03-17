@@ -73,12 +73,17 @@ video {
   flex: 1 1 auto;
 
   #logo {
+    color: white;
     width: 75%;
     max-width: 400px;
-    padding-top: 20.6%;
+    // padding-top: 20.6%;
     background: var(--primary-color);
     mask: url('../media/arsmea-logo.svg') no-repeat;
+    mask-size: 100%;
+    mask-position: center;
     -webkit-mask: url('../media/arsmea-logo.svg') no-repeat;
+    -webkit-mask-size: 100%;
+    -webkit-mask-position: center;
     .colorTransition;
 
     @media @bp-small {
