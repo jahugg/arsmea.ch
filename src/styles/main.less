@@ -24,11 +24,12 @@ video {
   color: black;
 }
 
-@bp-small: ~'screen and (min-width: 540px)';
+@bp-small: ~"screen and (min-width: 540px)";
+@bp-medium: ~"screen and (min-width: 1000px)";
 
 .colorTransition {
   transition-property: color, background;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
   transition-timing-function: ease-in;
 }
 
@@ -45,8 +46,8 @@ video {
 #app {
   height: 100vh;
   width: 100vw;
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  letter-spacing: 0.15em;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 0.08em;
   font-size: 1em;
 
   @media @bp-small {
@@ -68,22 +69,63 @@ video {
 
 #content__main {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+
+  section {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+    padding: 30px;
+  }
 
   #logo {
-    width: 75%;
-    max-width: 400px;
-    padding-top: 20.6%;
+    height: 100%;
     background: var(--primary-color);
-    mask: url('../media/arsmea-logo.svg') no-repeat;
-    -webkit-mask: url('../media/arsmea-logo.svg') no-repeat;
+    mask: url("../media/arsmea-logo.svg") no-repeat;
+    mask-size: 70%;
+    mask-position: center;
+    -webkit-mask: url("../media/arsmea-logo.svg") no-repeat;
+    -webkit-mask-size: 70%;
+    -webkit-mask-position: center;
     .colorTransition;
 
     @media @bp-small {
-      padding: 0;
-      height: 110px;
+      mask-size: 50%;
+      -webkit-mask-size: 50%;
+    }
+
+    @media @bp-medium {
+      mask-size: 40%;
+      -webkit-mask-size: 40%;
+    }
+  }
+
+  .about {
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    article {
+      max-width: 700px;
+      background-clip: text;
+      color: var(--primary-color);
+      font-size: 1.2em;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .signature {
+      margin-top: 2.5em;
+      font-style: italic;
+      text-align: right;
+      font-size: .9em;
     }
   }
 }
@@ -95,6 +137,7 @@ video {
   a {
     flex: 1 0 auto;
     text-align: center;
+    letter-spacing: 0.15em;
     padding: 1.2em;
     color: var(--primary-color);
     text-decoration: none;

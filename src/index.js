@@ -9,7 +9,13 @@ let currentColor = 0;
 
 function initApp() {
   setTimeout(() => setColorPair(getRandomInt(5)), 1000);
-  let colorInterval = setInterval(changeColor, 10000);
+  const colorInterval = setInterval(cycleColor, 10000);
+  const app = document.getElementById('app');
+  app.addEventListener('wheel', zoom);
+}
+
+function zoom(e){
+  console.log('zoom');
 }
 
 function setColorPair(index) {
@@ -18,7 +24,7 @@ function setColorPair(index) {
   document.body.style.setProperty('--secondary-color', `#${colorPairs[index][1]}`);
 }
 
-function changeColor() {
+function cycleColor(e) {
   if (currentColor == colorPairs.length - 1) currentColor = 0;
   else currentColor++;
 
