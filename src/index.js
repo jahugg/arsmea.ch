@@ -11,11 +11,6 @@ function initApp() {
   setTimeout(() => setColorPair(getRandomInt(5)), 1000);
   const colorInterval = setInterval(cycleColor, 10000);
   const app = document.getElementById('app');
-  app.addEventListener('wheel', zoom);
-}
-
-function zoom(e){
-  console.log('zoom');
 }
 
 function setColorPair(index) {
