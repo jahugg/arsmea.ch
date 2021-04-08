@@ -36,8 +36,13 @@ video {
 /* ============ */
 /* properties */
 :root {
-  --primary-color: black;
-  --secondary-color: white;
+  --color-font: black;
+  --color-background: white;
+  --color-link-inactive: rgba(255, 255, 255, 0.08);
+  --color-link-active: rgba(255, 255, 255, 0.17);
+
+  --padding-s: 6px;
+  --padding-l: 30px;
 }
 
 /* ============ */
@@ -53,77 +58,103 @@ video {
   }
 }
 
-#content__main {
-  height: 100vh;
-  overflow-y: scroll;
-  -ms-scroll-snap-type: y proximity;
-  scroll-snap-type: y proximity;
-  background: var(--secondary-color);
+.page {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#logo {
+  flex: 1 1 auto;
+  background: var(--color-font);
+  -webkit-mask: url("../media/arsmea-logo.svg") no-repeat;
+  mask: url("../media/arsmea-logo.svg") no-repeat;
+  -webkit-mask-size: 70%;
+  mask-size: 70%;
+  -webkit-mask-position: center;
+  mask-position: center;
   .colorTransition;
 
-  section {
-    height: 100vh;
-    scroll-snap-align: start;
-    width: 100%;
+  @media @bp-small {
+    -webkit-mask-size: 50%;
+    mask-size: 50%;
+  }
+
+  @media @bp-medium {
+    -webkit-mask-size: 40%;
+    mask-size: 40%;
+  }
+}
+
+#contact {
+  width: 100%;
+  display: flex;
+  gap: var(--padding-s);
+  justify-content: space-evenly;
+  padding: var(--padding-s);
+  padding-top: 0;
+
+  a {
     position: relative;
-  }
-
-  #logo {
-    background: var(--primary-color);
-    -webkit-mask: url("../media/arsmea-logo.svg") no-repeat;
-    mask: url("../media/arsmea-logo.svg") no-repeat;
-    -webkit-mask-size: 70%;
-    mask-size: 70%;
-    -webkit-mask-position: center;
-    mask-position: center;
+    flex: 1 0 auto;
+    text-align: center;
+    letter-spacing: 0.15em;
+    padding: 1.2em 0;
+    color: var(--color-font);
+    text-decoration: none;
+    text-transform: uppercase;
+    background: var(--color-link-inactive);
     .colorTransition;
-
-    @media @bp-small {
-      -webkit-mask-size: 50%;
-      mask-size: 50%;
-    }
-
-    @media @bp-medium {
-      -webkit-mask-size: 40%;
-      mask-size: 40%;
-    }
   }
 
-  ul.showcase {
-    list-style-type: none;
+  a:hover {
+    background: var(--color-link-active);
+  }
+}
+
+ul.showcase {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+
+  li {
+    overflow: hidden;
+    width: 50%;
+  }
+
+  img {
+    width: 100%;
     max-width: 500px;
-    padding: 0;
-
-    li {
-      padding: 10px;
-      overflow: hidden;
-      height: 100vw;
-    }
-
-    img {
-      width: 100%;
-      max-width: 500px;
-    }
   }
+}
+
+#main {
+  height: 100vh;
+  overflow-y: scroll;
+  -ms-scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
+  background: var(--color-background);
+  .colorTransition;
 
   .quote {
-    align-items: center;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .text {
-    padding: 30px;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-
-    article {
-      max-width: 700px;
-      color: var(--primary-color);
-      font-size: 1.2em;
-      -ms-hyphens: manual;
-      -webkit-hyphens: manual;
-      hyphens: manual;
-    }
+    padding: var(--padding-l);
+    max-width: 700px;
+    color: var(--color-font);
+    font-size: 1.2em;
+    -ms-hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual;
 
     ul.price-list {
       display: flex;
@@ -131,15 +162,15 @@ video {
       list-style-type: none;
       padding: 0;
       margin-bottom: 2em;
-      gap: 5px;
+      gap: var(--padding-s);
 
       a {
         display: inline-block;
-        padding: .8em 1em;
-  
+        padding: 0.8em 1em;
+
         &:after {
           content: "CHF";
-          font-size: .6em;
+          font-size: 0.6em;
         }
       }
     }
@@ -148,11 +179,11 @@ video {
       color: inherit;
       font-style: italic;
       text-decoration: none;
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--color-link-inactive);
       .colorTransition;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.17);
+        background: var(--color-link-active);
       }
     }
 
@@ -162,44 +193,5 @@ video {
       text-align: right;
       font-size: 0.9em;
     }
-  }
-}
-
-#content__nav {
-  --padding: 6px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  gap: var(--padding);
-  justify-content: space-evenly;
-  padding: var(--padding);
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--secondary-color);
-    width: 100%;
-    height: 100%;
-    .colorTransition;
-  }
-
-  a {
-    flex: 1 0 auto;
-    z-index: 100;
-    text-align: center;
-    letter-spacing: 0.15em;
-    padding: 1.2em 0;
-    color: var(--primary-color);
-    text-decoration: none;
-    text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.1);
-    .colorTransition;
-  }
-
-  a:hover {
-    background: rgba(255, 255, 255, 0.17);
   }
 }
