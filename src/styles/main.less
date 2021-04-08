@@ -64,6 +64,7 @@ video {
   width: 100%;
   display: flex;
   flex-direction: column;
+  max-width: 550px;
 }
 
 #logo {
@@ -120,6 +121,7 @@ ul.showcase {
   padding: 0;
   margin: 0;
   display: flex;
+  max-height: 180px;
 
   li {
     overflow: hidden;
@@ -128,7 +130,6 @@ ul.showcase {
 
   img {
     width: 100%;
-    max-width: 500px;
   }
 }
 
@@ -139,6 +140,9 @@ ul.showcase {
   scroll-snap-type: y mandatory;
   background: var(--color-background);
   .colorTransition;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .quote {
     flex: 1 1 auto;
