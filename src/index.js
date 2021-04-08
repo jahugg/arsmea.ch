@@ -8,23 +8,28 @@ const colorPairs = [
 let currentColor = 0;
 
 function initApp() {
-  setTimeout(() => setColorPair(getRandomInt(5)), 1000);
+  setTimeout(() => setColorPair(getRandomInt(5)), 300);
   const colorInterval = setInterval(cycleColor, 10000);
   const app = document.getElementById('app');
+  app.addEventListener('scroll', doSomething);
+}
+
+function doSomething(){
+  console.log("now");
 }
 
 function setColorPair(index) {
   currentColor = index;
-  document.body.style.setProperty('--primary-color', `#${colorPairs[index][0]}`);
-  document.body.style.setProperty('--secondary-color', `#${colorPairs[index][1]}`);
+  document.body.style.setProperty('--color-font', `#${colorPairs[index][0]}`);
+  document.body.style.setProperty('--color-background', `#${colorPairs[index][1]}`);
 }
 
 function cycleColor(e) {
   if (currentColor == colorPairs.length - 1) currentColor = 0;
   else currentColor++;
 
-  document.body.style.setProperty('--primary-color', `#${colorPairs[currentColor][0]}`);
-  document.body.style.setProperty('--secondary-color', `#${colorPairs[currentColor][1]}`);
+  document.body.style.setProperty('--color-font', `#${colorPairs[currentColor][0]}`);
+  document.body.style.setProperty('--color-background', `#${colorPairs[currentColor][1]}`);
 }
 
 initApp();
