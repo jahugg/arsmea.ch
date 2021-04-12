@@ -75,11 +75,11 @@ video {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: url("../media/arsmea-gs-001-1200-min.webp") bottom var(--color-background);
-  background-size: cover;
-  background-blend-mode: luminosity;
-  .colorTransition;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  // background: url("../media/arsmea-gs-001-1200-min.webp") bottom var(--color-background);
+  // background-size: cover;
+  // background-blend-mode: luminosity;
+  // .colorTransition;
+  // box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .splash__logo {
@@ -91,13 +91,12 @@ video {
   mask-size: 70%;
   -webkit-mask-position: center;
   mask-position: center;
-  mix-blend-mode: color-dodge;
   .colorTransition;
+  // mix-blend-mode: color-dodge;
 }
 
 .splash__contact {
   display: flex;
-  gap: var(--padding-s);
   justify-content: space-evenly;
   padding: var(--padding-s);
   padding-top: 0;
@@ -109,13 +108,18 @@ video {
     text-align: center;
     letter-spacing: 0.15em;
     padding: 1em 0;
-    color: white;
+    color: var(--color-font);
     text-decoration: none;
     text-transform: uppercase;
     background: var(--color-link-inactive);
     .colorTransition;
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+
+    &:first-child {
+      margin-right: calc(var(--padding-s) / 2);
+    }
+    &:last-child {
+      margin-left: calc(var(--padding-s) / 2);
+    }
   }
 
   a:hover {
@@ -130,18 +134,38 @@ video {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--padding-s);
 
   li {
     flex: 1 1 0;
     overflow: hidden;
     height: 180px;
+    padding: 0 calc(var(--padding-s) / 2);
+    cursor: pointer;
+
+    &:first-child {
+      padding-left: var(--padding-s);
+    }
+    &:last-child {
+      padding-right: var(--padding-s);
+    }
   }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+.enlarged-image {
+  padding: var(--padding-s);
+  width: 100%;
+  height: 100vw;
+  max-height: 500px;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    width: 100%;
   }
 }
 
@@ -192,14 +216,15 @@ article {
   list-style-type: none;
   padding: 0;
   margin-bottom: 2em;
-  gap: var(--padding-s);
 
   a {
     display: inline-block;
     padding: 0.8em 1em;
+    margin: 0 var(--padding-s) var(--padding-s) 0;
 
     &:after {
       content: "CHF";
+      margin-left: .1em;
       font-size: var(--font-size-s);
     }
   }
