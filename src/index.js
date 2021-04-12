@@ -9,13 +9,7 @@ let currentColor = 0;
 
 function initApp() {
   setTimeout(() => setColorPair(getRandomInt(5)), 300);
-  const colorInterval = setInterval(cycleColor, 10000);
-  const app = document.getElementById('app');
-  app.addEventListener('scroll', doSomething);
-}
-
-function doSomething(){
-  console.log("now");
+  const colorInterval = setInterval(cycleColor, 20000);
 }
 
 function setColorPair(index) {
