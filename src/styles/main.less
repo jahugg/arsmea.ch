@@ -2,6 +2,7 @@
 /* default styles */
 html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 *,
@@ -42,7 +43,13 @@ video {
   --color-link-active: rgba(255, 255, 255, 0.17);
 
   --padding-s: 6px;
-  --padding-l: 30px;
+  --padding-m: 30px;
+  --padding-l: 110px;
+  --padding-xl: 200px;
+
+  --font-size-s: 1.6rem;
+  --font-size-m: 2.1rem;
+  --font-size-l: 2.8rem;
 }
 
 /* ============ */
@@ -50,24 +57,32 @@ video {
 
 #app {
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  letter-spacing: 0.08em;
-  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--color-font);
 
-  @media @bp-small {
-    font-size: 1.2em;
-  }
+  background: var(--color-background);
+  .colorTransition;
 }
 
-.page {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  width: 100%;
+#main {
+  margin: 0 auto;
+  max-width: 550px;
+  padding-bottom: 50px;
+}
+
+.splash {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  max-width: 550px;
+  background: url("../media/arsmea-gs-001-1200-min.webp") bottom var(--color-background);
+  background-size: cover;
+  background-blend-mode: luminosity;
+  .colorTransition;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-#logo {
+.splash__logo {
   flex: 1 1 auto;
   background: var(--color-font);
   -webkit-mask: url("../media/arsmea-logo.svg") no-repeat;
@@ -76,38 +91,31 @@ video {
   mask-size: 70%;
   -webkit-mask-position: center;
   mask-position: center;
+  mix-blend-mode: color-dodge;
   .colorTransition;
-
-  @media @bp-small {
-    -webkit-mask-size: 50%;
-    mask-size: 50%;
-  }
-
-  @media @bp-medium {
-    -webkit-mask-size: 40%;
-    mask-size: 40%;
-  }
 }
 
-#contact {
-  width: 100%;
+.splash__contact {
   display: flex;
   gap: var(--padding-s);
   justify-content: space-evenly;
   padding: var(--padding-s);
   padding-top: 0;
+  font-size: var(--font-size-m);
 
   a {
     position: relative;
     flex: 1 0 auto;
     text-align: center;
     letter-spacing: 0.15em;
-    padding: 1.2em 0;
-    color: var(--color-font);
+    padding: 1em 0;
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
     background: var(--color-link-inactive);
     .colorTransition;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
   a:hover {
@@ -115,87 +123,84 @@ video {
   }
 }
 
-ul.showcase {
+.showcase {
   list-style-type: none;
   width: 100%;
   padding: 0;
   margin: 0;
   display: flex;
-  max-height: 180px;
+  flex-wrap: wrap;
+  gap: var(--padding-s);
 
   li {
+    flex: 1 1 0;
     overflow: hidden;
-    width: 50%;
+    height: 180px;
   }
 
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-#main {
-  height: 100vh;
-  overflow-y: scroll;
-  -ms-scroll-snap-type: y mandatory;
-  scroll-snap-type: y mandatory;
-  background: var(--color-background);
-  .colorTransition;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+article {
+  padding: 0 var(--padding-m);
+  -ms-hyphens: manual;
+  -webkit-hyphens: manual;
+  hyphens: manual;
 
-  .quote {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  a {
+    color: inherit;
+    font-style: italic;
+    text-decoration: none;
+    background: var(--color-link-inactive);
+    .colorTransition;
+
+    &:hover {
+      background: var(--color-link-active);
+    }
   }
+}
 
-  .text {
-    padding: var(--padding-l);
-    max-width: 700px;
-    color: var(--color-font);
-    font-size: 1.2em;
-    -ms-hyphens: manual;
-    -webkit-hyphens: manual;
-    hyphens: manual;
+.quote {
+  font-size: var(--font-size-l);
+  padding-top: var(--padding-xl);
+  padding-bottom: var(--padding-l);
+}
 
-    ul.price-list {
-      display: flex;
-      flex-wrap: wrap;
-      list-style-type: none;
-      padding: 0;
-      margin-bottom: 2em;
-      gap: var(--padding-s);
+.sidenote {
+  font-style: italic;
+  text-align: right;
+  font-size: var(--font-size-s);
+  margin-top: 2.5em;
+}
 
-      a {
-        display: inline-block;
-        padding: 0.8em 1em;
+.description {
+  padding-top: var(--padding-l);
+  font-size: var(--font-size-m);
+}
 
-        &:after {
-          content: "CHF";
-          font-size: 0.6em;
-        }
-      }
-    }
+.address {
+  margin-top: var(--padding-l);
+}
 
-    a {
-      color: inherit;
-      font-style: italic;
-      text-decoration: none;
-      background: var(--color-link-inactive);
-      .colorTransition;
+.price-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2em;
+  gap: var(--padding-s);
 
-      &:hover {
-        background: var(--color-link-active);
-      }
-    }
+  a {
+    display: inline-block;
+    padding: 0.8em 1em;
 
-    .signature {
-      margin-top: 2.5em;
-      font-style: italic;
-      text-align: right;
-      font-size: 0.9em;
+    &:after {
+      content: "CHF";
+      font-size: var(--font-size-s);
     }
   }
 }
