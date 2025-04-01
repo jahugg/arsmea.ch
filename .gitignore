@@ -1,7 +1,8 @@
-# Yarn Clutter
-.yarn
-.pnp.js
-.yarnrc.yml
+# Database
+*.db
+
+# System
+.DS_Store
 
 # Logs
 logs
@@ -79,6 +80,7 @@ typings/
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
+.parcel-cache
 
 # Next.js build output
 .next
@@ -107,18 +109,3 @@ dist
 
 # TernJS port file
 .tern-port
-
-# Parcel js
-.parcel-cache
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Node.js version file
-.nvmrc

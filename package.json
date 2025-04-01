@@ -1,14 +1,15 @@
 {
   "name": "arsmea.ch",
+  "version": "1.0.0",
+  "description": "ars mea flower business website",
+  "main": "index.html",
   "scripts": {
-    "start": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "start": "serve"
   },
+  "keywords": ["html", "css"],
+  "author": "Jan Huggenberg",
+  "license": "MIT",
   "devDependencies": {
-    "@parcel/transformer-less": "2.0.0-beta.2",
-    "parcel": "next"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "serve": "11.2.0"
   }
 }
